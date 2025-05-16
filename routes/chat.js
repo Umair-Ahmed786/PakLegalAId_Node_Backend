@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
       // Verify the token using Clerk
       const tokenPayload = await verifyToken(token,{
         jwtKey: process.env.CLERK_JWT_KEY,
-        authorizedParties: ['http://localhost:3001'], // Replace with your authorized parties
+        authorizedParties: ['http://localhost:3001',"https://pak-legal-9j8399lto-umair-ahmeds-projects-da1c9e72.vercel.app"], // Replace with your authorized parties
       });
       console.log('payload from token: ',tokenPayload)
       const userId = tokenPayload.sub; // Extract the user ID (sub) from the token payload
@@ -65,7 +65,7 @@ router.post('/addchat', async (req, res) => {
         // Verify the token using Clerk
         const tokenPayload = await verifyToken(token, {
             jwtKey: process.env.CLERK_JWT_KEY,
-            authorizedParties: ['http://localhost:3001'], // Replace with your authorized parties
+            authorizedParties: ["http://localhost:3001","https://pak-legal-9j8399lto-umair-ahmeds-projects-da1c9e72.vercel.app"], // Replace with your authorized parties
         });
 
         const userId = tokenPayload.sub; // Extract the user ID (sub) from the token payload
@@ -169,7 +169,7 @@ router.put('/update/:chatId', async (req, res) => {
       // Verify the token using Clerk (or another JWT verification service)
       const tokenPayload = await verifyToken(token, {
         jwtKey: process.env.CLERK_JWT_KEY,
-        authorizedParties: ['http://localhost:3001'], // Replace with your authorized parties
+        authorizedParties: ['http://localhost:3001',"https://pak-legal-9j8399lto-umair-ahmeds-projects-da1c9e72.vercel.app"], // Replace with your authorized parties
       });
   
       const userId = tokenPayload.sub; // Extract the user ID (sub) from the token payload
