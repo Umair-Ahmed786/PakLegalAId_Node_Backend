@@ -24,7 +24,7 @@ router.post('/addmessage/:chatId', async (req, res) => {
         // Verify the token using Clerk
         const tokenPayload = await verifyToken(token, {
             jwtKey: process.env.CLERK_JWT_KEY,
-            authorizedParties: ["https://pak-legal-9j8399lto-umair-ahmeds-projects-da1c9e72.vercel.app"], // Replace with your authorized parties
+            authorizedParties: ["https://pak-legal-aid.vercel.app"], // Replace with your authorized parties
         });
 
         const userId = tokenPayload.sub; // Extract the user ID (sub) from the token payload
@@ -90,7 +90,7 @@ router.get('/getmessage/:chatId', async (req, res) => {
         // Verify the token using Clerk
         const tokenPayload = await verifyToken(token, {
             jwtKey: process.env.CLERK_JWT_KEY,
-            authorizedParties: ["https://pak-legal-9j8399lto-umair-ahmeds-projects-da1c9e72.vercel.app"], // Replace with your authorized parties
+            authorizedParties: ["https://pak-legal-aid.vercel.app"], // Replace with your authorized parties
         });
 
         const userId = tokenPayload.sub; // Extract the user ID (sub) from the token payload
